@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import AppTitle from '../atoms/AppTitle/AppTitle';
+import MenuIcon from '../atoms/MenuIcon/MenuIcon';
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -11,8 +12,9 @@ const Wrapper = styled.div`
 const StyledHeader = styled.header`
   display: flex;
   align-items: space-around;
-  width: 100%;
+  width: 92%;
   height: 10%;
+  margin: 0 auto;
 `;
 
 const MainTemplate = ({ children }) => {
@@ -20,6 +22,7 @@ const MainTemplate = ({ children }) => {
     <Wrapper>
       <StyledHeader>
         <AppTitle />
+        <MenuIcon />
       </StyledHeader>
       {children}
     </Wrapper>
