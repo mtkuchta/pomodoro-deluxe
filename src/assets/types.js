@@ -5,4 +5,6 @@ export const types = {
   setInterval: 'SET_INTERVAL',
   count: 'COUNT',
   increaseIntervals: 'INCREASE_INTERVALS',
+  showSettings: 'SHOW_SETTINGS',
+  saveSettings: 'SAVE_SETTINGS',
 };

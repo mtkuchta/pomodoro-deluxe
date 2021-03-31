@@ -5,7 +5,7 @@ export const reducer = (state, action) => {
     case types.count:
       return {
         ...state,
-        counterValue: state.counterValue - 1000,
+        counterValue: state.counterValue - 1 / 60,
       };
     case types.setIsRunning:
       return {
@@ -27,6 +27,16 @@ export const reducer = (state, action) => {
       return {
         ...state,
         intervalsNumber: action.isWorkInterval ? state.intervalsNumber + 1 : state.intervalsNumber,
+      };
+    case types.showSettings:
+      return {
+        ...state,
+        isSettingsActive: !state.isSettingsActive,
+      };
+    case types.saveSettings:
+      return {
+        ...state,
+        intervals: action.intervals,
       };
     default:
       return state;

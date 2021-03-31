@@ -1,25 +1,34 @@
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import { types } from '../assets/types';
 import { reducer } from '../reducers/reducer';
+import { useLocalStorage } from '../hooks/useLocalStorage';
 
 import { handleNextInterval } from '../assets/helpers/handleNextInterval';
 
 export const PomodoroContext = React.createContext({
-  intervals: { workTime: 1500000, shortBreak: 30000, longBreak: 1200000 },
+  intervals: { workTime: 25, shortBreak: 5, longBreak: 20, longBreakIntervals: 4 },
+
   counterValue: 0,
   handleStartStopCount: () => {},
 });
 
 const initialState = {
-  intervals: { workTime: 15000, shortBreak: 30000, longBreak: 1200000 },
+  intervals: { workTime: 25, shortBreak: 5, longBreak: 20, longBreakIntervals: 4 },
   isWorkInterval: true,
   counterValue: 15000,
   isRunning: false,
   intervalsNumber: 0,
+  isSettingsActive: false,
 };
 
 export const PomodoroProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const { saveDataInStorage, getDataFromStorage } = useLocalStorage();
+
+  useEffect(() => {
+    const settings = getDataFromStorage('intervals');
+    if (settings) dispatch({ type: types.saveSettings, intervals: settings });
+  }, []);
 
   useEffect(() => {
     if (state.isRunning) {
@@ -50,7 +59,20 @@ export const PomodoroProvider = ({ children }) => {
     dispatch({ type: types.setIsRunning });
   };
 
-  return <PomodoroContext.Provider value={{ state, handleStartStopCount }}>{children}</PomodoroContext.Provider>;
+  const handleShowSettings = () => {
+    dispatch({ type: types.showSettings });
+  };
+
+  const handleSaveSettings = (intervals) => {
+    dispatch({ type: types.saveSettings, intervals });
+    dispatch({ type: types.showSettings });
+  };
+
+  return (
+    <PomodoroContext.Provider value={{ state, handleStartStopCount, handleShowSettings, handleSaveSettings }}>
+      {children}
+    </PomodoroContext.Provider>
+  );
 };
 
 export default PomodoroProvider;
