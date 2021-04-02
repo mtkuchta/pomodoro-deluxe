@@ -1,26 +1,38 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { StyledForm } from './SettingsForm.style';
 import { useLocalStorage } from '../../../hooks/useLocalStorage';
+import { initialSettings } from './../../../assets/initialSettings';
+import { isSettingsFormValid } from '../../../assets/helpers/isSettingsFormValid';
+import { PomodoroContext } from '../../../providers/PomodoroProvider';
 
 import FormField from '../../atoms/FormField/FormField';
+import FormButton from '../../atoms/FormButton/FormButton';
+import ErrorMessage from '../../atoms/ErrorMessage/ErrorMessage';
 
-import { PomodoroContext } from '../../../providers/PomodoroProvider';
-import SubmitButton from '../../atoms/SubmitButton/SubmitButton';
-
-const initialSettings = {
-  workTime: 25,
-  shortBreak: 5,
-  longBreak: 20,
-  longBreakIntervals: 4,
-};
+const initialErrors = { workTime: null, shortBreak: null, longBreak: null, longBreakIntervals: null };
 
 const SettingsForm = () => {
-  const { handleSaveSettings } = useContext(PomodoroContext);
+  const { state, handleSaveSettings, handleDefaultSettings } = useContext(PomodoroContext);
   const { saveDataInStorage, getDataFromStorage } = useLocalStorage();
   const [settingsValues, setSettingsValues] = useState(getDataFromStorage('intervals') || initialSettings);
+  const [formErrors, setFormErrors] = useState(initialErrors);
+
+  useEffect(() => {
+    setSettingsValues(state.intervals);
+  }, [state.intervals]);
 
   const handleSettingsInputChange = (e) => {
     setSettingsValues({ ...settingsValues, [e.target.name]: Number(e.target.value) });
+  };
+
+  const handleSubmitForm = () => {
+    const { isValid, errors } = isSettingsFormValid(settingsValues);
+    setFormErrors(initialErrors);
+    if (isValid) {
+      handleSaveSettings(settingsValues);
+    } else {
+      setFormErrors(errors);
+    }
   };
 
   return (
@@ -32,6 +44,7 @@ const SettingsForm = () => {
         value={settingsValues.workTime}
         onChange={handleSettingsInputChange}
       />
+      {formErrors.workTime ? <ErrorMessage text={formErrors.workTime} /> : null}
       <FormField
         name="shortBreak"
         id="shortBreak"
@@ -39,6 +52,7 @@ const SettingsForm = () => {
         value={settingsValues.shortBreak}
         onChange={handleSettingsInputChange}
       />
+      {formErrors.shortBreak ? <ErrorMessage text={formErrors.shortBreak} /> : null}
       <FormField
         name="longBreak"
         id="longtBreak"
@@ -46,6 +60,7 @@ const SettingsForm = () => {
         value={settingsValues.longBreak}
         onChange={handleSettingsInputChange}
       />
+      {formErrors.longBreak ? <ErrorMessage text={formErrors.longBreak} /> : null}
       <FormField
         name="longBreakIntervals"
         id="longtBreakIntervals"
@@ -53,7 +68,9 @@ const SettingsForm = () => {
         value={settingsValues.longBreakIntervals}
         onChange={handleSettingsInputChange}
       />
-      <SubmitButton onClick={() => handleSaveSettings(settingsValues)} />
+      {formErrors.longBreakIntervals ? <ErrorMessage text={formErrors.longBreakIntervals} /> : null}
+      <FormButton onClick={handleSubmitForm} text="Save settings" />
+      <FormButton onClick={handleDefaultSettings} text="Default settings" />
     </StyledForm>
   );
 };

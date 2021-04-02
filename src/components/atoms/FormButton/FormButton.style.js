@@ -9,6 +9,7 @@ export const StyledButton = styled.button`
   border-radius: 8px;
   box-shadow: 0px 0px 10px ${({ theme }) => theme.colors.violet};
   color: ${({ theme }) => theme.colors.white};
+  margin: 8px 0;
 
   &:focus {
     outline: none;

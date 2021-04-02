@@ -2,8 +2,10 @@ import React, { useEffect, useReducer } from 'react';
 import { types } from '../assets/types';
 import { reducer } from '../reducers/reducer';
 import { useLocalStorage } from '../hooks/useLocalStorage';
+import { initialSettings } from '../assets/initialSettings';
 
 import { handleNextInterval } from '../assets/helpers/handleNextInterval';
+import SettingsForm from '../components/organisms/SettingsForm/SettingsForm';
 
 export const PomodoroContext = React.createContext({
   intervals: { workTime: 25, shortBreak: 5, longBreak: 20, longBreakIntervals: 4 },
@@ -55,6 +57,11 @@ export const PomodoroProvider = ({ children }) => {
     });
   }, [state.isWorkInterval]);
 
+  useEffect(() => {
+    saveDataInStorage('intervals', state.intervals);
+    dispatch({ type: types.setCounterValue, value: state.intervals.workTime });
+  }, [state.intervals]);
+
   const handleStartStopCount = () => {
     dispatch({ type: types.setIsRunning });
   };
@@ -68,8 +75,14 @@ export const PomodoroProvider = ({ children }) => {
     dispatch({ type: types.showSettings });
   };
 
+  const handleDefaultSettings = () => {
+    dispatch({ type: types.saveSettings, intervals: initialSettings });
+  };
+
   return (
-    <PomodoroContext.Provider value={{ state, handleStartStopCount, handleShowSettings, handleSaveSettings }}>
+    <PomodoroContext.Provider
+      value={{ state, handleStartStopCount, handleShowSettings, handleSaveSettings, handleDefaultSettings }}
+    >
       {children}
     </PomodoroContext.Provider>
   );
