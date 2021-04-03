@@ -53,7 +53,7 @@ export const PomodoroProvider = ({ children }) => {
   useEffect(() => {
     dispatch({
       type: types.setInterval,
-      value: handleNextInterval(state.isWorkInterval, state.intervalsNumber, state.intervals),
+      value: handleNextInterval(state.isWorkInterval, state.intervalsNumber, state.intervals) * 1000 * 60,
     });
   }, [state.isWorkInterval]);
 

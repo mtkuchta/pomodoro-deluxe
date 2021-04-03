@@ -5,6 +5,7 @@ import Button from '../../atoms/Button/Button';
 
 import { PomodoroContext } from '../../../providers/PomodoroProvider';
 import IntervalInfo from '../../atoms/IntervalInfo/IntervalInfo';
+import Sound from '../../atoms/Sound/Sound';
 
 const Counter = () => {
   const {
@@ -16,6 +17,7 @@ const Counter = () => {
       <CounterDisplay value={counterValue} isRunning={isRunning} />
       <IntervalInfo />
       <Button onClick={handleStartStopCount} text={isRunning ? 'stop' : 'start'} />
+      <Sound counterValue={counterValue} isRunning={isRunning} />
     </Wrapper>
   );
 };

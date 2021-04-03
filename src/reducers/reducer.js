@@ -5,12 +5,12 @@ export const reducer = (state, action) => {
     case types.setCounterValue:
       return {
         ...state,
-        counterValue: action.value,
+        counterValue: action.value * 60 * 1000,
       };
     case types.count:
       return {
         ...state,
-        counterValue: state.counterValue - 1 / 60,
+        counterValue: state.counterValue - 1000,
       };
     case types.setIsRunning:
       return {
