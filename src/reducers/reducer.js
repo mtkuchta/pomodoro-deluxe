@@ -22,7 +22,6 @@ export const reducer = (state, action) => {
         ...state,
         isWorkInterval: !state.isWorkInterval,
       };
-
     case types.setInterval:
       return {
         ...state,
@@ -42,6 +41,11 @@ export const reducer = (state, action) => {
       return {
         ...state,
         intervals: action.intervals,
+      };
+    case types.updateTasks:
+      return {
+        ...state,
+        tasks: action.tasks,
       };
     default:
       return state;

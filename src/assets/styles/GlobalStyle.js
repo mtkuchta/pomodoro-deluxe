@@ -26,7 +26,7 @@ body{
     font-size:10px;
 }
 
-a,button{
+a,button,input{
     font-family:"Play", sans-serif;
 }
 

@@ -13,7 +13,7 @@ const initialErrors = { workTime: null, shortBreak: null, longBreak: null, longB
 
 const SettingsForm = () => {
   const { state, handleSaveSettings, handleDefaultSettings } = useContext(PomodoroContext);
-  const { saveDataInStorage, getDataFromStorage } = useLocalStorage();
+  const { getDataFromStorage } = useLocalStorage();
   const [settingsValues, setSettingsValues] = useState(getDataFromStorage('intervals') || initialSettings);
   const [formErrors, setFormErrors] = useState(initialErrors);
 

@@ -4,7 +4,7 @@ export const useLocalStorage = () => {
   };
 
   const getDataFromStorage = (name) => {
-    return JSON.parse(localStorage.getItem('intervals'));
+    return JSON.parse(localStorage.getItem(name));
   };
 
   return {

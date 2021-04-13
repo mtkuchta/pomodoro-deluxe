@@ -1,15 +1,16 @@
 import React, { useEffect, useReducer } from 'react';
+import { useHistory } from 'react-router-dom';
 import { types } from '../assets/types';
 import { reducer } from '../reducers/reducer';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { initialSettings } from '../assets/initialSettings';
 
 import { handleNextInterval } from '../assets/helpers/handleNextInterval';
-import SettingsForm from '../components/organisms/SettingsForm/SettingsForm';
+import { findId } from '../assets/helpers/findId';
+import { setActiveTask } from '../assets/helpers/setActiveTask';
 
 export const PomodoroContext = React.createContext({
   intervals: { workTime: 25, shortBreak: 5, longBreak: 20, longBreakIntervals: 4 },
-
   counterValue: 0,
   handleStartStopCount: () => {},
 });
@@ -21,15 +22,25 @@ const initialState = {
   isRunning: false,
   intervalsNumber: 0,
   isSettingsActive: false,
+  activeTask: null,
+  tasks: [
+    // { id: 0, title: 'pomodoro App', description: ' działam ', isActive: false },
+    // { id: 1, title: 'pomodoro App', description: ' działam ', isActive: false },
+    // { id: 2, title: 'pomodoro App', description: ' działam ', isActive: false },
+  ],
 };
 
 export const PomodoroProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { saveDataInStorage, getDataFromStorage } = useLocalStorage();
+  let history = useHistory();
 
   useEffect(() => {
     const settings = getDataFromStorage('intervals');
+    const tasksList = getDataFromStorage('tasks');
+    console.log(tasksList);
     if (settings) dispatch({ type: types.saveSettings, intervals: settings });
+    if (tasksList) dispatch({ type: types.updateTasks, tasks: tasksList });
   }, []);
 
   useEffect(() => {
@@ -62,6 +73,10 @@ export const PomodoroProvider = ({ children }) => {
     dispatch({ type: types.setCounterValue, value: state.intervals.workTime });
   }, [state.intervals]);
 
+  useEffect(() => {
+    saveDataInStorage('tasks', state.tasks);
+  }, [state.tasks]);
+
   const handleStartStopCount = () => {
     dispatch({ type: types.setIsRunning });
   };
@@ -79,9 +94,32 @@ export const PomodoroProvider = ({ children }) => {
     dispatch({ type: types.saveSettings, intervals: initialSettings });
   };
 
+  const handleSetActiveTask = (e) => {
+    const id = findId(e.target);
+    dispatch({ type: types.updateTasks, tasks: setActiveTask(state.tasks, id) });
+    saveDataInStorage('tasks', state.tasks);
+    history.push('/');
+  };
+
+  const handleAddTask = (task) => {
+    const newTaskId = Date.now();
+    const newTask = { id: newTaskId, title: task, description: '', isActive: false };
+    const updatedTasks = [...state.tasks];
+    updatedTasks.push(newTask);
+    dispatch({ type: types.updateTasks, tasks: setActiveTask(updatedTasks, newTaskId) });
+  };
+
   return (
     <PomodoroContext.Provider
-      value={{ state, handleStartStopCount, handleShowSettings, handleSaveSettings, handleDefaultSettings }}
+      value={{
+        state,
+        handleStartStopCount,
+        handleShowSettings,
+        handleSaveSettings,
+        handleDefaultSettings,
+        handleSetActiveTask,
+        handleAddTask,
+      }}
     >
       {children}
     </PomodoroContext.Provider>

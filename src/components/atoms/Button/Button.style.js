@@ -11,8 +11,14 @@ export const StyledButton = styled.button`
   font-size: 4.2em;
   letter-spacing: 2px;
   border-radius: 10px;
+  box-shadow: 0 8px 6px -6px black;
 
   &:focus {
     outline: none;
+  }
+
+  &:disabled {
+    box-shadow: none;
+    color: gray;
   }
 `;

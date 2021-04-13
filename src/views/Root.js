@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import MainTemplate from '../components/templates/MainTemplate';
 import { PomodoroProvider } from '../providers/PomodoroProvider';
 import PomodoroTimer from './PomodoroTimer/PomodoroTimer';
+import PomodoroTasks from './PomodoroTasks/PomodoroTasks';
 
 function Root() {
   return (
@@ -16,6 +17,9 @@ function Root() {
             <Switch>
               <Route path="/" exact>
                 <PomodoroTimer />
+              </Route>
+              <Route path="/tasks">
+                <PomodoroTasks />
               </Route>
             </Switch>
           </PomodoroProvider>

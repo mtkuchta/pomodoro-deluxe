@@ -1,9 +1,9 @@
 import { Wrapper, StyledIcon } from './MenuIcon.style';
 import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 
-const MenuIcon = () => {
+const MenuIcon = ({ onClick }) => {
   return (
-    <Wrapper>
+    <Wrapper onClick={onClick}>
       <StyledIcon icon={faEllipsisV} size="3x" />
     </Wrapper>
   );

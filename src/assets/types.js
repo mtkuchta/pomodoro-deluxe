@@ -7,4 +7,5 @@ export const types = {
   increaseIntervals: 'INCREASE_INTERVALS',
   showSettings: 'SHOW_SETTINGS',
   saveSettings: 'SAVE_SETTINGS',
+  updateTasks: 'UPDATE_TASKS',
 };

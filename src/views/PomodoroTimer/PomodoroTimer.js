@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import ActiveTask from '../../components/molecules/ActiveTask/ActiveTask';
 import Counter from '../../components/molecules/Counter/Counter';
 import Settings from '../../components/organisms/Settings/Settings';
 
@@ -10,6 +11,7 @@ const Wrapper = styled.main`
 const PomodoroTimer = () => {
   return (
     <Wrapper>
+      <ActiveTask />
       <Counter />
       <Settings />
     </Wrapper>

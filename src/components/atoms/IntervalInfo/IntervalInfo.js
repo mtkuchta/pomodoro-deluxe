@@ -1,18 +1,12 @@
-import React, { useContext } from 'react';
 import { Wrapper, StyledText } from './IntervalInfo.styled';
-import { PomodoroContext } from '../../../providers/PomodoroProvider';
 import { handleIntervalInfo } from '../../../assets/helpers/handleIntervalInfo';
 
-const IntervalInfo = () => {
-  const {
-    state: { isRunning, isWorkInterval },
-  } = useContext(PomodoroContext);
-
+const IntervalInfo = ({ isRunning, isWorkInterval, activeTask }) => {
   const text = handleIntervalInfo(isRunning, isWorkInterval);
 
   return (
     <Wrapper>
-      <StyledText key={text}>{text}</StyledText>
+      <StyledText key={text}>{activeTask ? text : null}</StyledText>
     </Wrapper>
   );
 };
