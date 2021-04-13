@@ -4,7 +4,7 @@ import CounterDisplay from '../../atoms/CounterDisplay/CounterDisplay';
 import Button from '../../atoms/Button/Button';
 
 import { PomodoroContext } from '../../../providers/PomodoroProvider';
-import IntervalInfo from '../../atoms/IntervalInfo/IntervalInfo';
+// import IntervalInfo from '../IntervalInfo/IntervalInfo';
 import Sound from '../../atoms/Sound/Sound';
 
 const Counter = () => {
@@ -17,7 +17,7 @@ const Counter = () => {
   return (
     <Wrapper>
       <CounterDisplay value={counterValue} isRunning={isRunning} />
-      <IntervalInfo isRunning={isRunning} isWorkInterval={isWorkInterval} activeTask={isActiveTask} />
+      {/* <IntervalInfo isRunning={isRunning} isWorkInterval={isWorkInterval} activeTask={isActiveTask} /> */}
       <Button onClick={handleStartStopCount} text={isRunning ? 'stop' : 'start'} disabled={isActiveTask ? false : true} />
       <Sound counterValue={counterValue} isRunning={isRunning} />
     </Wrapper>

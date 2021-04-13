@@ -30,7 +30,7 @@ export const reducer = (state, action) => {
     case types.increaseIntervals:
       return {
         ...state,
-        intervalsNumber: action.isWorkInterval ? state.intervalsNumber + 1 : state.intervalsNumber,
+        workIntervals: action.isWorkInterval ? state.workIntervals + 1 : state.workIntervals,
       };
     case types.showSettings:
       return {

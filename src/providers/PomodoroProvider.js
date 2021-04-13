@@ -4,7 +4,6 @@ import { types } from '../assets/types';
 import { reducer } from '../reducers/reducer';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { initialSettings } from '../assets/initialSettings';
-
 import { handleNextInterval } from '../assets/helpers/handleNextInterval';
 import { findId } from '../assets/helpers/findId';
 import { setActiveTask } from '../assets/helpers/setActiveTask';
@@ -13,6 +12,11 @@ export const PomodoroContext = React.createContext({
   intervals: { workTime: 25, shortBreak: 5, longBreak: 20, longBreakIntervals: 4 },
   counterValue: 0,
   handleStartStopCount: () => {},
+  handleShowSettings: () => {},
+  handleSaveSettings: () => {},
+  handleDefaultSettings: () => {},
+  handleSetActiveTask: () => {},
+  handleAddTask: () => {},
 });
 
 const initialState = {
@@ -20,14 +24,10 @@ const initialState = {
   isWorkInterval: true,
   counterValue: 15000,
   isRunning: false,
-  intervalsNumber: 0,
+  workIntervals: 0,
   isSettingsActive: false,
   activeTask: null,
-  tasks: [
-    // { id: 0, title: 'pomodoro App', description: ' działam ', isActive: false },
-    // { id: 1, title: 'pomodoro App', description: ' działam ', isActive: false },
-    // { id: 2, title: 'pomodoro App', description: ' działam ', isActive: false },
-  ],
+  tasks: [],
 };
 
 export const PomodoroProvider = ({ children }) => {
@@ -38,7 +38,6 @@ export const PomodoroProvider = ({ children }) => {
   useEffect(() => {
     const settings = getDataFromStorage('intervals');
     const tasksList = getDataFromStorage('tasks');
-    console.log(tasksList);
     if (settings) dispatch({ type: types.saveSettings, intervals: settings });
     if (tasksList) dispatch({ type: types.updateTasks, tasks: tasksList });
   }, []);
