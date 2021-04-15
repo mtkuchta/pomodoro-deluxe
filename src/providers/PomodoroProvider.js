@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import * as workerTimers from 'worker-timers';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { useCounter } from '../hooks/useCounter';
 import { useSettings } from '../hooks/useSettings';
@@ -18,6 +20,7 @@ export const PomodoroProvider = ({ children }) => {
   const { settings, handleShowSettings, handleSaveSettings, handleDefaultSettings, getSettingsFromStorage } = useSettings();
   const { tasks, handleSetActiveTask, handleAddTask, getTasksFromStorage } = useTasks();
   const { saveDataInStorage } = useLocalStorage();
+  const history = useHistory();
 
   useEffect(() => {
     getSettingsFromStorage();
@@ -26,10 +29,10 @@ export const PomodoroProvider = ({ children }) => {
 
   useEffect(() => {
     if (counter.isRunning) {
-      const interval = setInterval(() => {
+      const interval = workerTimers.setInterval(() => {
         handleCount();
       }, 1000);
-      return () => clearInterval(interval);
+      return () => workerTimers.clearInterval(interval);
     }
     return undefined;
   }, [counter.isRunning]);
@@ -57,6 +60,7 @@ export const PomodoroProvider = ({ children }) => {
         counter,
         settings,
         tasks,
+        history,
         handleStartStopCount,
         handleShowSettings,
         handleSaveSettings,
