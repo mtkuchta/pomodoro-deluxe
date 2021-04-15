@@ -12,7 +12,16 @@ const TasksList = () => {
   return (
     <Wrapper>
       {tasks.map((task) => {
-        return <Task key={task.id} title={task.title} isActive={task.isActive} onClick={handleSetActiveTask} id={task.id} />;
+        return (
+          <Task
+            key={task.id}
+            title={task.title}
+            isActive={task.isActive}
+            onClick={handleSetActiveTask}
+            id={task.id}
+            task={task}
+          />
+        );
       })}
     </Wrapper>
   );

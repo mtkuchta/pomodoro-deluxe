@@ -1,6 +1,6 @@
 import { types } from '../assets/types';
 
-export const reducer = (state, action) => {
+export const counterReducer = (state, action) => {
   switch (action.type) {
     case types.setCounterValue:
       return {
