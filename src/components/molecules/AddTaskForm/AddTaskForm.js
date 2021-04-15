@@ -56,6 +56,7 @@ const AddTaskForm = ({ handleOpen }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     handleAddTask(taskInputValue);
+    setTaskInputValue('');
   };
 
   return (

@@ -5,7 +5,7 @@ import Task from '../../molecules/Task/Task';
 
 const TasksList = () => {
   const {
-    state: { tasks },
+    tasks: { tasks },
     handleSetActiveTask,
   } = useContext(PomodoroContext);
 

@@ -5,10 +5,8 @@ import { PomodoroContext } from '../../../providers/PomodoroProvider';
 
 const IntervalInfo = () => {
   const {
-    state: {
-      isRunning,
-      isWorkInterval,
-      workIntervals,
+    counter: { isRunning, isWorkInterval, workIntervals },
+    settings: {
       intervals: { longBreakIntervals },
     },
   } = useContext(PomodoroContext);

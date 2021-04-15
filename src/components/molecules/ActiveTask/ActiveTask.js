@@ -5,7 +5,7 @@ import { PomodoroContext } from '../../../providers/PomodoroProvider';
 
 const ActiveTask = () => {
   const {
-    state: { tasks },
+    tasks: { tasks },
   } = useContext(PomodoroContext);
 
   const activeTask = tasks.find((task) => task.isActive === true);

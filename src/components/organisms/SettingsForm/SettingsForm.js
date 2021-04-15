@@ -12,14 +12,14 @@ import ErrorMessage from '../../atoms/ErrorMessage/ErrorMessage';
 const initialErrors = { workTime: null, shortBreak: null, longBreak: null, longBreakIntervals: null };
 
 const SettingsForm = () => {
-  const { state, handleSaveSettings, handleDefaultSettings } = useContext(PomodoroContext);
+  const { settings, handleSaveSettings, handleDefaultSettings } = useContext(PomodoroContext);
   const { getDataFromStorage } = useLocalStorage();
   const [settingsValues, setSettingsValues] = useState(getDataFromStorage('intervals') || initialSettings);
   const [formErrors, setFormErrors] = useState(initialErrors);
 
   useEffect(() => {
-    setSettingsValues(state.intervals);
-  }, [state.intervals]);
+    setSettingsValues(settings.intervals);
+  }, [settings.intervals]);
 
   const handleSettingsInputChange = (e) => {
     setSettingsValues({ ...settingsValues, [e.target.name]: Number(e.target.value) });
