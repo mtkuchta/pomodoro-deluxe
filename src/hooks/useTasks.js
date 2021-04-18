@@ -5,11 +5,17 @@ import { types } from '../assets/types';
 import { setActiveTask } from '../assets/helpers/setActiveTask';
 import { findId } from '../assets/helpers/findId';
 import { useLocalStorage } from '../hooks/useLocalStorage';
+import { findTaskIndex } from '../assets/helpers/findTaskIndex';
 
 export const useTasks = () => {
   const [tasks, dispatchTasks] = useReducer(tasksReducer, { tasks: [] });
   const { saveDataInStorage, getDataFromStorage } = useLocalStorage();
   let history = useHistory();
+
+  const getTasksFromStorage = () => {
+    const tasksList = getDataFromStorage('tasks');
+    if (tasksList) dispatchTasks({ type: types.updateTasks, tasks: tasksList });
+  };
 
   const handleSetActiveTask = (e) => {
     const id = findId(e.target);
@@ -26,9 +32,21 @@ export const useTasks = () => {
     dispatchTasks({ type: types.updateTasks, tasks: setActiveTask(updatedTasks, newTaskId) });
   };
 
-  const getTasksFromStorage = () => {
-    const tasksList = getDataFromStorage('tasks');
-    if (tasksList) dispatchTasks({ type: types.updateTasks, tasks: tasksList });
+  const handleDeleteTask = (e) => {
+    const indexToDelete = findTaskIndex(e, tasks.tasks);
+    const modifiedTasks = [...tasks.tasks];
+    modifiedTasks.splice(indexToDelete, 1);
+    dispatchTasks({ type: types.updateTasks, tasks: modifiedTasks });
+  };
+
+  const handleSaveTask = (e, title, description) => {
+    const indexToModify = findTaskIndex(e, tasks.tasks);
+    const modifiedTask = tasks.tasks[indexToModify];
+    modifiedTask.title = title;
+    modifiedTask.description = description;
+    const tasksArr = [...tasks.tasks];
+    tasksArr.splice(indexToModify, 1, modifiedTask);
+    dispatchTasks({ type: types.updateTasks, tasks: tasksArr });
   };
 
   return {
@@ -36,5 +54,7 @@ export const useTasks = () => {
     handleSetActiveTask,
     handleAddTask,
     getTasksFromStorage,
+    handleDeleteTask,
+    handleSaveTask,
   };
 };

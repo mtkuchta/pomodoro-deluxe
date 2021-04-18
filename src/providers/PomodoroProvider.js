@@ -18,7 +18,7 @@ export const PomodoroContext = React.createContext({
 export const PomodoroProvider = ({ children }) => {
   const { counter, handleCount, handleEndInterval, setNextInterval, handleSetCounterValue, handleStartStopCount } = useCounter();
   const { settings, handleShowSettings, handleSaveSettings, handleDefaultSettings, getSettingsFromStorage } = useSettings();
-  const { tasks, handleSetActiveTask, handleAddTask, getTasksFromStorage } = useTasks();
+  const { tasks, handleSetActiveTask, handleAddTask, getTasksFromStorage, handleDeleteTask, handleSaveTask } = useTasks();
   const { saveDataInStorage } = useLocalStorage();
   const history = useHistory();
 
@@ -68,6 +68,8 @@ export const PomodoroProvider = ({ children }) => {
         handleSetActiveTask,
         handleAddTask,
         handleStartStopCount,
+        handleDeleteTask,
+        handleSaveTask,
       }}
     >
       {children}

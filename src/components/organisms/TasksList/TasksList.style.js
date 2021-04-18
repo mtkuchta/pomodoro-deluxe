@@ -6,4 +6,5 @@ export const Wrapper = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: scroll;
 `;

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const Wrapper = styled.li`
   width: 90%;
-  height: 10%;
+  height: ${({ isOpen }) => (isOpen ? '40%' : '10%')};
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -12,8 +12,11 @@ export const Wrapper = styled.li`
   margin: 3px 0;
   padding: 0 10px;
   color: ${({ theme }) => theme.colors.white};
+  transition: height 0.5s;
+  flex-shrink: 0;
 
   p {
+    display: ${({ isOpen }) => (isOpen ? ' none' : 'block')};
     font-size: 1.8em;
     padding-left: 10px;
 

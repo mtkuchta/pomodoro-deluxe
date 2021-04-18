@@ -17,8 +17,8 @@ const MainTemplate = ({ children }) => {
       <StyledHeader>
         <AppTitle />
         <MenuIcon onClick={handleIsNavVisible} />
-        {isNavVisible ? <Nav onClick={handleIsNavVisible} /> : null}
       </StyledHeader>
+      {isNavVisible ? <Nav onClick={handleIsNavVisible} /> : null}
       {children}
     </Wrapper>
   );

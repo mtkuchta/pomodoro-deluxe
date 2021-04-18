@@ -7,6 +7,7 @@ const TasksList = () => {
   const {
     tasks: { tasks },
     handleSetActiveTask,
+    handleDeleteTask,
   } = useContext(PomodoroContext);
 
   return (
@@ -20,6 +21,7 @@ const TasksList = () => {
             onClick={handleSetActiveTask}
             id={task.id}
             task={task}
+            handledeleteTask={handleDeleteTask}
           />
         );
       })}

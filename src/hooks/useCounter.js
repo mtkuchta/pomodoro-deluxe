@@ -1,5 +1,5 @@
 import { useReducer } from 'react';
-import { reducer } from '../reducers/reducer';
+import { counterReducer } from '../reducers/counterReducer';
 import { types } from '../assets/types';
 import { handleNextInterval } from '../assets/helpers/handleNextInterval';
 
@@ -12,7 +12,7 @@ const initialState = {
 };
 
 export const useCounter = () => {
-  const [counter, dispatchCounter] = useReducer(reducer, initialState);
+  const [counter, dispatchCounter] = useReducer(counterReducer, initialState);
 
   const handleCount = () => {
     dispatchCounter({ type: types.count });
