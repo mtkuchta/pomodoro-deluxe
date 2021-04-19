@@ -1,14 +1,12 @@
-import styled from 'styled-components';
-
-const StyledText = styled.p`
-  color: red;
-  font-size: 1.4em;
-  width: 100%;
-  padding-left: 40px;
-`;
+import { StyledText } from './ErrorMessage.style';
+import PropTypes from 'prop-types';
 
 const ErrorMessage = ({ text }) => {
   return <StyledText>{text}</StyledText>;
+};
+
+ErrorMessage.propTypes = {
+  text: PropTypes.string,
 };
 
 export default ErrorMessage;

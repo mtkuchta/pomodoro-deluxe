@@ -61,7 +61,6 @@ export const PomodoroProvider = ({ children }) => {
         settings,
         tasks,
         history,
-        handleStartStopCount,
         handleShowSettings,
         handleSaveSettings,
         handleDefaultSettings,

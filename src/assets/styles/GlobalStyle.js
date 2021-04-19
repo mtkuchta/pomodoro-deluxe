@@ -2,11 +2,6 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
 
-/* @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Montserrat:wght@400;700&display=swap');
-
-font-family: 'Architects Daughter', cursive;
-font-family: 'Montserrat', sans-serif; */
-
 
 html{
     box-sizing:border-box;

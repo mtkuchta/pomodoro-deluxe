@@ -1,4 +1,5 @@
 import { NavContainer, StyledLink } from './Nav.style';
+import PropTypes from 'prop-types';
 
 const Nav = ({ onClick }) => {
   return (
@@ -11,6 +12,10 @@ const Nav = ({ onClick }) => {
       </StyledLink>
     </NavContainer>
   );
+};
+
+Nav.propTypes = {
+  onClick: PropTypes.func,
 };
 
 export default Nav;

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Wrapper, StyledIcon } from './Task.style';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import TaskEditForm from '../TaskEditForm/TaskEditForm';
+import PropTypes from 'prop-types';
 
 const Task = ({ title, isActive, onClick, id, task }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,6 +24,19 @@ const Task = ({ title, isActive, onClick, id, task }) => {
       <TaskEditForm isOpen={isOpen ? true : false} task={task} handleClose={handleClose} />
     </Wrapper>
   );
+};
+
+Task.propTypes = {
+  title: PropTypes.string,
+  isActive: PropTypes.bool,
+  onClick: PropTypes.func,
+  id: PropTypes.number,
+  task: PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string,
+    description: PropTypes.string,
+    isActive: PropTypes.bool,
+  }),
 };
 
 export default Task;

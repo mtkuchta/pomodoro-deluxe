@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from 'react';
 import { StyledForm, StyledLabel, StyledInput, StyledTextArea, ButtonContainer, StyledButton } from './TaskEditForm.style';
 import { PomodoroContext } from '../../../providers/PomodoroProvider';
+import PropTypes from 'prop-types';
 
 const TaskEditForm = ({ task, isOpen, handleClose }) => {
   const [formValues, setFormValues] = useState({ title: '', description: '' });
@@ -48,6 +49,17 @@ const TaskEditForm = ({ task, isOpen, handleClose }) => {
       </ButtonContainer>
     </StyledForm>
   );
+};
+
+TaskEditForm.propTypes = {
+  task: PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string,
+    description: PropTypes.string,
+    isActive: PropTypes.bool,
+  }),
+  isOpen: PropTypes.bool,
+  handleClose: PropTypes.func,
 };
 
 export default TaskEditForm;
