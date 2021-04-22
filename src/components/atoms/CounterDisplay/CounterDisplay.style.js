@@ -6,6 +6,17 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (orientation: landscape) {
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 40%;
+  }
+
+  @media (min-width: 1024px) {
+    height: 50%;
+  }
 `;
 
 export const StyledTime = styled.div`
@@ -25,5 +36,17 @@ export const StyledTime = styled.div`
     100% {
       opacity: 1;
     }
+  }
+
+  @media (orientation: landscape) {
+    padding: 20px 0;
+  }
+
+  @media (min-width: 700px) {
+    font-size: 14em;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 20em;
   }
 `;

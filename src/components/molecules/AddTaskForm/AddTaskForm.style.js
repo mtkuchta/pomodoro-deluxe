@@ -6,6 +6,19 @@ export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+
+  @media (orientation: landscape) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @media (min-width: 1024px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const StyledTaskInput = styled.input`
@@ -22,10 +35,35 @@ export const StyledTaskInput = styled.input`
   &:focus {
     outline: none;
   }
+
+  @media (orientation: landscape) {
+    height: 50%;
+    width: 70%;
+  }
+
+  @media (min-width: 700px) {
+    width: 90%;
+    height: 30%;
+    font-size: 2.6em;
+  }
+
+  @media (min-width: 1024px) {
+    height: 18%;
+    /* padding-bottom: 0; */
+    font-size: 3em;
+  }
 `;
 
 export const ButtonsWrapper = styled.div`
-  width: 100%; ;
+  width: 100%;
+  @media (orientation: landscape) {
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+  }
+  @media (min-width: 700px) {
+    width: 90%;
+  }
 `;
 
 export const FormButton = styled.button`
@@ -40,5 +78,25 @@ export const FormButton = styled.button`
 
   &:focus {
     outline: none;
+  }
+
+  @media (min-width: 700px) {
+    font-size: 2.2em;
+    padding: 8px 25px;
+  }
+
+  @media (min-width: 1024px) {
+    transition: 0.5s;
+    position: relative;
+    border: 4px solid transparent;
+    font-size: 2.4em;
+    padding: 6px 25px;
+    cursor: pointer;
+
+    &:hover {
+      color: ${({ theme }) => theme.colors.violet};
+      background-color: ${({ theme }) => theme.colors.white};
+      border: 4px solid ${({ theme }) => theme.colors.violet};
+    }
   }
 `;

@@ -1,10 +1,10 @@
 import { NavContainer, StyledLink } from './Nav.style';
 import PropTypes from 'prop-types';
 
-const Nav = ({ onClick }) => {
+const Nav = ({ onClick, isNavVisible }) => {
   return (
-    <NavContainer>
-      <StyledLink onClick={onClick} to="/">
+    <NavContainer isNavVisible={isNavVisible}>
+      <StyledLink onClick={onClick} to="/" exact>
         Timer
       </StyledLink>
       <StyledLink onClick={onClick} to="/tasks">

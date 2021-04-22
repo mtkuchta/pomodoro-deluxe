@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Wrapper, StyledHeader } from './MainTemplate.style';
+import { AppContainer, Wrapper, StyledHeader } from './MainTemplate.style';
 
 import AppTitle from '../atoms/AppTitle/AppTitle';
 import MenuIcon from '../atoms/MenuIcon/MenuIcon';
@@ -13,14 +13,16 @@ const MainTemplate = ({ children }) => {
   };
 
   return (
-    <Wrapper>
-      <StyledHeader>
-        <AppTitle />
-        <MenuIcon onClick={handleIsNavVisible} />
-      </StyledHeader>
-      {isNavVisible ? <Nav onClick={handleIsNavVisible} /> : null}
-      {children}
-    </Wrapper>
+    <AppContainer>
+      <Wrapper>
+        <StyledHeader>
+          <AppTitle />
+          <MenuIcon onClick={handleIsNavVisible} />
+        </StyledHeader>
+        <Nav onClick={handleIsNavVisible} isNavVisible={isNavVisible} />
+        {children}
+      </Wrapper>
+    </AppContainer>
   );
 };
 

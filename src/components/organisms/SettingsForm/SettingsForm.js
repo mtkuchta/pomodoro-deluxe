@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { StyledForm } from './SettingsForm.style';
+import { StyledForm, ButtonsContainer } from './SettingsForm.style';
 import { useLocalStorage } from '../../../hooks/useLocalStorage';
 import { initialSettings } from './../../../assets/initialSettings';
 import { isSettingsFormValid } from '../../../assets/helpers/isSettingsFormValid';
@@ -69,8 +69,10 @@ const SettingsForm = () => {
         onChange={handleSettingsInputChange}
       />
       {formErrors.longBreakIntervals ? <ErrorMessage text={formErrors.longBreakIntervals} /> : null}
-      <FormButton onClick={handleSubmitForm} text="Save settings" />
-      <FormButton onClick={handleDefaultSettings} text="Default settings" />
+      <ButtonsContainer>
+        <FormButton onClick={handleSubmitForm} text="Save settings" />
+        <FormButton onClick={handleDefaultSettings} text="Default settings" />
+      </ButtonsContainer>
     </StyledForm>
   );
 };

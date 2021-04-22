@@ -3,12 +3,18 @@ import styled from 'styled-components';
 export const StyledForm = styled.form`
   display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  align-items: flex-start;
+  /* justify-content: flex-start; */
   width: 100%;
   height: 90%;
   padding-left: 10px;
   animation: showForm 1s ease-in-out;
+
+  div {
+    width: 100%;
+    height: 50%;
+    margin-bottom: 5px;
+  }
 
   @keyframes showForm {
     from {
@@ -16,6 +22,14 @@ export const StyledForm = styled.form`
     }
     to {
       opacity: 1;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    padding-left: 40px;
+
+    div {
+      margin-bottom: 15px;
     }
   }
 `;
@@ -28,6 +42,19 @@ export const StyledLabel = styled.label`
   margin-bottom: 2%;
   padding-left: 10px;
   letter-spacing: 1px;
+
+  @media (min-width: 700px) {
+    font-size: 1.8em;
+  }
+  @media (min-width: 700px) and (orientation: landscape) {
+    margin-bottom: 1%;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 2.2em;
+    padding-bottom: 5px;
+    width: 20%;
+  }
 `;
 
 export const StyledInput = styled.input`
@@ -42,6 +69,16 @@ export const StyledInput = styled.input`
     outline: none;
     color: ${({ theme }) => theme.colors.green};
   }
+
+  @media (min-width: 700px) {
+    font-size: 2.5em;
+    margin-bottom: 2%;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 3em;
+    margin-bottom: 2%;
+  }
 `;
 
 export const StyledTextArea = styled.textarea`
@@ -52,15 +89,37 @@ export const StyledTextArea = styled.textarea`
   border: none;
   margin-bottom: 10px;
   color: ${({ theme }) => theme.colors.white};
+  overflow: scroll;
+  overflow: hidden;
 
   &:focus {
     outline: none;
     color: ${({ theme }) => theme.colors.green};
   }
+
+  @media (min-width: 700px) {
+    font-size: 2.2em;
+  }
+
+  @media (min-width: 700px) and (orientation: landscape) {
+    margin-bottom: 5px;
+  }
+
+  @media (min-width: 1024px) {
+    width: inherit;
+    height: inherit;
+    font-size: 2.5em;
+  }
 `;
 
 export const ButtonContainer = styled.div`
   width: 100%;
+  display: flex;
+  align-items: center;
+
+  @media (min-width: 700px) {
+    padding-bottom: 10px;
+  }
 `;
 
 export const StyledButton = styled.button`
@@ -74,5 +133,26 @@ export const StyledButton = styled.button`
 
   &:focus {
     outline: none;
+  }
+  @media (min-width: 700px) {
+    font-size: 2.2em;
+    padding: 4px 15px;
+    margin: 0 6px;
+  }
+
+  @media (min-width: 700px) and (orientation: landscape) {
+    font-size: 2em;
+    padding: 3px 15px;
+  }
+
+  @media (min-width: 1024px) {
+    cursor: pointer;
+    font-size: 2.5em;
+    transition: 0.5s;
+
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.violet};
+      color: ${({ theme }) => theme.colors.white};
+    }
   }
 `;

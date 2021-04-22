@@ -6,4 +6,15 @@ export const Wrapper = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (orientation: landscape) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  @media (min-width: 1024px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;

@@ -2,7 +2,7 @@ export const isSettingsFormValid = (intervals) => {
   const { workTime, shortBreak, longBreak, longBreakIntervals } = intervals;
   const errors = { workTime: null, shortBreak: null, longBreak: null, longBreakIntervals: null };
 
-  const isWorkTimeValid = workTime >= 1;
+  const isWorkTimeValid = workTime >= 5;
   const isShortBreakValid = shortBreak >= 1;
   const isLongBreakValid = longBreak >= 5;
   const isLongBreakIntervalsValid = longBreakIntervals >= 2;

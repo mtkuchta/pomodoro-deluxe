@@ -17,4 +17,14 @@ export const StyledTitle = styled.h1`
   padding-bottom: 5px;
   border-bottom: 2px solid ${({ theme }) => theme.colors.red};
   text-transform: uppercase;
+
+  @media (min-width: 700px) {
+    font-size: 3.8em;
+    padding-bottom: 20px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 5.6em;
+    padding-bottom: 10px;
+  }
 `;

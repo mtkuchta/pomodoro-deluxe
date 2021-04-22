@@ -24,9 +24,55 @@ export const Wrapper = styled.li`
       text-transform: uppercase;
     }
   }
+
+  @media (orientation: landscape) {
+    height: ${({ isOpen }) => (isOpen ? '70%' : '15%')};
+  }
+
+  @media (min-width: 700px) {
+    height: ${({ isOpen }) => (isOpen ? '35%' : '8%')};
+    margin: 5px 0;
+    p {
+      font-size: 2.5em;
+    }
+  }
+
+  @media (min-width: 700px) and (orientation: landscape) {
+    height: ${({ isOpen }) => (isOpen ? '40%' : '10%')};
+  }
+
+  @media (min-width: 1024px) {
+    height: ${({ isOpen }) => (isOpen ? '30%' : '10%')};
+    padding-left: 2%;
+    width: 90%;
+    cursor: pointer;
+    transition: 0.5s;
+
+    p {
+      font-size: 3.2em;
+      padding-left: 2%;
+      transition: 0.5s;
+    }
+
+    &:hover p {
+      letter-spacing: 1px;
+    }
+  }
 `;
 
 export const StyledIcon = styled(FontAwesomeIcon)`
   color: ${({ theme, isActive }) => (isActive ? theme.colors.white : theme.colors.violet)};
   font-size: 2.5em;
+
+  @media (min-width: 700px) {
+    font-size: 3.5em;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 4.2em;
+
+    &:hover {
+      color: ${({ theme }) => theme.colors.green};
+    }
+  }
 `;

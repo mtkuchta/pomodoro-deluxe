@@ -32,15 +32,17 @@ const TaskEditForm = ({ task, isOpen, handleClose }) => {
       <StyledLabel htmlFor="title">Task title</StyledLabel>
       <StyledInput type="text" name="title" value={formValues.title} id="title" onChange={handleInputChange} />
       <StyledLabel htmlFor="description">Desription</StyledLabel>
-      <StyledTextArea
-        id="desription"
-        name="description"
-        rows="2"
-        maxLength="150"
-        value={formValues.description}
-        onChange={handleInputChange}
-        placeholder="Write task descrition..."
-      />
+      <div>
+        <StyledTextArea
+          id="desription"
+          name="description"
+          rows="2"
+          maxLength="150"
+          value={formValues.description}
+          onChange={handleInputChange}
+          placeholder="Write task descrition..."
+        />
+      </div>
 
       <ButtonContainer>
         <StyledButton onClick={handleSaveModifiedTask}>Save</StyledButton>
