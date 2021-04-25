@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const StyledButton = styled.button`
   width: 70%;
+  max-width: 350px;
   height: 15%;
   background-color: ${({ theme }) => theme.colors.violet};
   color: ${({ theme }) => theme.colors.white};

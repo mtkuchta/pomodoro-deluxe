@@ -40,8 +40,10 @@ export const Wrapper = styled.div`
 export const StyledInterval = styled.p`
   width: 32%;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding-top: 3px;
   font-size: 1.4em;
   border-radius: 6px;
   color: ${({ theme }) => theme.colors.violet};
@@ -56,26 +58,22 @@ export const StyledInterval = styled.p`
     width: 80%;
     height: 10%;
     margin: 5px 0;
-    padding-top: 5px;
     font-size: 1.5em;
     letter-spacing: 1px;
   }
 
   @media (min-width: 700px) {
     font-size: 1.8em;
-    padding-top: 8px;
   }
 
   @media (min-width: 700px) and (orientation: landscape) {
     height: 10%;
     width: 70%;
     font-size: 1.8em;
-    padding-top: 8px;
   }
 
   @media (min-width: 1024px) {
     height: 90%;
-    font-size: 2.6em;
-    padding-top: 5px;
+    font-size: 2.2em;
   }
 `;
