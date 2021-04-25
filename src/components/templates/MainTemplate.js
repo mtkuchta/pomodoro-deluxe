@@ -12,8 +12,10 @@ const MainTemplate = ({ children }) => {
     setIsNavVisible(!isNavVisible);
   };
 
+  const appHeight = window.innerHeight;
+
   return (
-    <AppContainer>
+    <AppContainer appHeight={appHeight}>
       <Wrapper>
         <StyledHeader>
           <AppTitle />

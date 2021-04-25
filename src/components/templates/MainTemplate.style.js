@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const AppContainer = styled.div`
-  height: 100vh;
+  height: ${({ appHeight }) => `${appHeight}px`};
   width: 100vw;
   background-color: ${({ theme }) => theme.colors.white};
   display: flex;
