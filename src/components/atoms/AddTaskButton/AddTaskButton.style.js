@@ -25,6 +25,7 @@ export const StyledButton = styled.button`
     height: ${({ isOpen }) => (isOpen ? '0%' : '100%')};
     transition:  .5s;
 
+
     &:hover {
       
       letter-spacing:1px;

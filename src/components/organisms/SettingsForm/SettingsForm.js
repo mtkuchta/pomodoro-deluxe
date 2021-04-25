@@ -12,7 +12,7 @@ import ErrorMessage from '../../atoms/ErrorMessage/ErrorMessage';
 const initialErrors = { workTime: null, shortBreak: null, longBreak: null, longBreakIntervals: null };
 
 const SettingsForm = () => {
-  const { settings, handleSaveSettings, restoreDefaultSettings } = useContext(PomodoroContext);
+  const { settings, saveSettings, restoreDefaultSettings } = useContext(PomodoroContext);
   const { getDataFromStorage } = useLocalStorage();
   const [settingsValues, setSettingsValues] = useState(getDataFromStorage('intervals') || initialSettings);
   const [formErrors, setFormErrors] = useState(initialErrors);
@@ -37,7 +37,7 @@ const SettingsForm = () => {
     const { isValid, errors } = isSettingsFormValid(settingsValues);
     setFormErrors(initialErrors);
     if (isValid) {
-      handleSaveSettings(settingsValues);
+      saveSettings(settingsValues);
       setSettingsValues(getDataFromStorage('intervals'));
     } else {
       setFormErrors(errors);

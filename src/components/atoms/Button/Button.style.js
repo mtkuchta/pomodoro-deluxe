@@ -11,7 +11,6 @@ export const StyledButton = styled.button`
   font-size: 4.2em;
   letter-spacing: 2px;
   border-radius: 10px;
-  /* box-shadow: 0 8px 6px -5px black; */
   transition: 0.5s ease-out;
 
   &:focus {
@@ -54,7 +53,7 @@ export const StyledButton = styled.button`
       transition: 0.4s ease;
     }
 
-    &:hover {
+    &:hover:not([disabled]) {
       background-color: ${({ theme }) => theme.colors.white};
       color: ${({ theme }) => theme.colors.violet};
       /* border: 5px solid ${({ theme }) => theme.colors.violet}; */

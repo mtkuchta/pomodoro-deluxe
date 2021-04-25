@@ -34,7 +34,7 @@ export const StyledText = styled.h1`
 
   @media (min-width: 1024px) {
     cursor: pointer;
-    font-size: 4.5em;
+    font-size: 4.6sem;
 
     &:hover {
       transform: scale(1.1);

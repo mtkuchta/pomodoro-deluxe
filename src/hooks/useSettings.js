@@ -8,11 +8,11 @@ export const useSettings = () => {
   const [settings, dispatchSettings] = useReducer(settingsReducer, initialSettings);
   const { getDataFromStorage } = useLocalStorage();
 
-  const handleShowSettings = () => {
+  const showHideSettings = () => {
     dispatchSettings({ type: types.showSettings });
   };
 
-  const handleSaveSettings = (intervals) => {
+  const saveSettings = (intervals) => {
     dispatchSettings({ type: types.saveSettings, intervals });
   };
 
@@ -22,13 +22,13 @@ export const useSettings = () => {
 
   const getSettingsFromStorage = () => {
     const savedSettings = getDataFromStorage('intervals');
-    handleSaveSettings(savedSettings);
+    saveSettings(savedSettings);
   };
 
   return {
     settings,
-    handleShowSettings,
-    handleSaveSettings,
+    showHideSettings,
+    saveSettings,
     restoreDefaultSettings,
     getSettingsFromStorage,
   };

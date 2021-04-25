@@ -5,10 +5,10 @@ import { PomodoroContext } from '../../../providers/PomodoroProvider';
 import SettingsForm from '../SettingsForm/SettingsForm';
 
 const Settings = () => {
-  const { settings, handleShowSettings } = useContext(PomodoroContext);
+  const { settings, showHideSettings } = useContext(PomodoroContext);
   return (
     <Wrapper isSettingsActive={settings.isSettingsActive}>
-      <StyledText onClick={handleShowSettings}>settings</StyledText>
+      <StyledText onClick={showHideSettings}>settings</StyledText>
       <SettingsForm />
     </Wrapper>
   );

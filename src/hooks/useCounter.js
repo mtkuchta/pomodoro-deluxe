@@ -33,7 +33,7 @@ export const useCounter = () => {
     });
   };
 
-  const handleSetCounterValue = (settings) => {
+  const setCounterValue = (settings) => {
     dispatchCounter({ type: types.setCounterValue, value: settings.intervals.workTime });
   };
 
@@ -46,7 +46,7 @@ export const useCounter = () => {
     handleCount,
     handleEndInterval,
     setNextInterval,
-    handleSetCounterValue,
+    setCounterValue,
     handleStartStopCount,
   };
 };
