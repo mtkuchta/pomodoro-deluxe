@@ -1,7 +1,7 @@
 import { GlobalStyle } from '../assets/styles/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../assets/styles/theme';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import MainTemplate from '../components/templates/MainTemplate';
 import { PomodoroProvider } from '../providers/PomodoroProvider';
 import PomodoroTimer from './PomodoroTimer/PomodoroTimer';
