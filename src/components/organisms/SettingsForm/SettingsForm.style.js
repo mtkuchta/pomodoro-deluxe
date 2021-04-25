@@ -9,12 +9,22 @@ export const StyledForm = styled.div`
   align-items: center;
   margin: 10px 0;
 
+  @media (orientation: landscape) {
+    width: 80%;
+  }
+
   @media (min-width: 700px) {
     padding-top: 30px;
   }
 
+  @media (min-width: 700px) and (orientation: landscape) {
+    width: 90%;
+    padding-top: 10px;
+  }
+
   @media (min-width: 1024px) {
-    width: 80%;
+    width: 70%;
+    padding-top: 10px;
     background-color: ${({ theme }) => theme.colors.violet};
   }
 `;
@@ -33,7 +43,11 @@ export const ButtonsContainer = styled.div`
   }
 
   @media (min-width: 700px) {
-    padding-top: 30px;
+    padding-top: 20px;
+  }
+
+  @media (min-width: 700px) and (orientation: landscape) {
+    padding-top: 10px;
   }
 
   @media (min-width: 1024px) {

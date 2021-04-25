@@ -10,7 +10,7 @@ export const Wrapper = styled.ul`
 
   @media (orientation: landscape) {
     width: 80%;
-    height: 65%;
+    height: 70%;
   }
 
   @media (min-width: 700px) {
@@ -20,6 +20,7 @@ export const Wrapper = styled.ul`
 
   @media (min-width: 1024px) {
     width: 80%;
+    max-width: 800px;
     height: 85%;
   }
 `;

@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
     height: 100%;
     align-items: center;
     justify-content: flex-start;
-    padding-top: 60px;
+    padding-top: 40px;
   }
 
   @media (min-width: 700px) {
@@ -25,7 +25,7 @@ export const Wrapper = styled.div`
     height: 100%;
     align-items: center;
     justify-content: flex-start;
-    padding-top: 100px;
+    padding-top: 30px;
   }
 
   @media (min-width: 1024px) {
@@ -67,15 +67,15 @@ export const StyledInterval = styled.p`
   }
 
   @media (min-width: 700px) and (orientation: landscape) {
-    height: 7%;
+    height: 10%;
     width: 70%;
-    font-size: 2em;
+    font-size: 1.8em;
     padding-top: 8px;
   }
 
   @media (min-width: 1024px) {
     height: 90%;
     font-size: 2.6em;
-    padding-top: 12px;
+    padding-top: 5px;
   }
 `;

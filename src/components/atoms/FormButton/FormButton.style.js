@@ -24,7 +24,10 @@ export const StyledButton = styled.button`
   }
 
   @media (min-width: 700px) and (orientation: landscape) {
-    width: 30%;
+    width: 40%;
+    font-size: 2em;
+    padding: 10px 15px;
+    margin: 10px 0;
   }
 
   @media (min-width: 1024px) {

@@ -4,7 +4,6 @@ export const StyledForm = styled.form`
   display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
   flex-direction: column;
   align-items: flex-start;
-  /* justify-content: flex-start; */
   width: 100%;
   height: 90%;
   padding-left: 10px;
@@ -15,13 +14,11 @@ export const StyledForm = styled.form`
     height: 50%;
     margin-bottom: 5px;
   }
-
-  @keyframes showForm {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
+  @media (orientation: landscape) {
+    div {
+      width: 100%;
+      height: 35%;
+      margin-bottom: 5px;
     }
   }
 
@@ -29,7 +26,17 @@ export const StyledForm = styled.form`
     padding-left: 40px;
 
     div {
-      margin-bottom: 15px;
+      height: 30%;
+      margin-bottom: 5px;
+    }
+  }
+
+  @keyframes showForm {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
     }
   }
 `;
@@ -46,12 +53,16 @@ export const StyledLabel = styled.label`
   @media (min-width: 700px) {
     font-size: 1.8em;
   }
+
+  @media (orientation: landscape) {
+    margin-bottom: 3px;
+  }
   @media (min-width: 700px) and (orientation: landscape) {
     margin-bottom: 1%;
   }
 
   @media (min-width: 1024px) {
-    font-size: 2.2em;
+    font-size: 1.8em;
     padding-bottom: 5px;
     width: 20%;
   }
@@ -75,19 +86,22 @@ export const StyledInput = styled.input`
     margin-bottom: 2%;
   }
 
+  @media (orientation: landscape) {
+    font-size: 1.8em;
+  }
+
   @media (min-width: 1024px) {
-    font-size: 3em;
+    font-size: 2.5em;
     margin-bottom: 2%;
   }
 `;
 
 export const StyledTextArea = styled.textarea`
   width: 90%;
-  height: 35%;
+  height: 100%;
   font-size: 1.6em;
   background-color: transparent;
   border: none;
-  margin-bottom: 10px;
   color: ${({ theme }) => theme.colors.white};
   overflow: scroll;
   overflow: hidden;
@@ -107,8 +121,8 @@ export const StyledTextArea = styled.textarea`
 
   @media (min-width: 1024px) {
     width: inherit;
-    height: inherit;
-    font-size: 2.5em;
+    height: 100%;
+    font-size: 2.2em;
   }
 `;
 
@@ -119,6 +133,10 @@ export const ButtonContainer = styled.div`
 
   @media (min-width: 700px) {
     padding-bottom: 10px;
+  }
+
+  @media (min-width: 1024px) {
+    padding-bottom: 0;
   }
 `;
 
@@ -147,7 +165,7 @@ export const StyledButton = styled.button`
 
   @media (min-width: 1024px) {
     cursor: pointer;
-    font-size: 2.5em;
+    font-size: 2.2em;
     transition: 0.5s;
 
     &:hover {

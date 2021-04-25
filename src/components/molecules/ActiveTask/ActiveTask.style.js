@@ -32,6 +32,10 @@ export const StyledText = styled.h1`
     font-size: 3.6em;
   }
 
+  @media (min-width: 700px) and (orientation: landscape) {
+    font-size: 3.2em;
+  }
+
   @media (min-width: 1024px) {
     cursor: pointer;
     font-size: 4.6sem;

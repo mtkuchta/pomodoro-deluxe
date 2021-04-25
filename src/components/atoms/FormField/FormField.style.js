@@ -19,6 +19,7 @@ export const Wrapper = styled.div`
   @media (min-width: 700px) and (orientation: landscape) {
     width: 50%;
   }
+
   @media (min-width: 1024px) {
     width: 70%;
   }
@@ -29,7 +30,11 @@ export const StyledLabel = styled.label`
   color: ${({ theme }) => theme.colors.white};
 
   @media (min-width: 700px) {
-    font-size: 3em;
+    font-size: 2.5em;
+  }
+
+  @media (min-width: 700px) and (orientation: landscape) {
+    font-size: 2.2em;
   }
 `;
 
@@ -46,6 +51,9 @@ export const StyledInput = styled.input`
   }
 
   @media (min-width: 700px) {
-    font-size: 3.2em;
+    font-size: 2.6em;
+  }
+  @media (min-width: 700px) and (orientation: landscape) {
+    font-size: 2.5em;
   }
 `;

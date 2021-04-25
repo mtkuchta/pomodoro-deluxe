@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
   }
 
   @media (min-width: 1024px) {
-    height: 50%;
+    height: 60%;
   }
 `;
 
@@ -47,6 +47,6 @@ export const StyledTime = styled.div`
   }
 
   @media (min-width: 1024px) {
-    font-size: 20em;
+    font-size: 15em;
   }
 `;

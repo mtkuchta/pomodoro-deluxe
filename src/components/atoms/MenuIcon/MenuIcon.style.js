@@ -26,4 +26,8 @@ export const StyledIcon = styled(FontAwesomeIcon)`
   @media (min-width: 700px) {
     font-size: 5em;
   }
+
+  @media (min-width: 700px) and (orientation: landscape) {
+    font-size: 3em;
+  }
 `;

@@ -22,9 +22,13 @@ export const StyledTitle = styled.h1`
     font-size: 3.8em;
     padding-bottom: 20px;
   }
+  @media (min-width: 700px) and (orientation: landscape) {
+    font-size: 3.4em;
+    padding-bottom: 5px;
+  }
 
   @media (min-width: 1024px) {
-    font-size: 5.6em;
-    padding-bottom: 10px;
+    font-size: 5em;
+    padding-bottom: 5px;
   }
 `;

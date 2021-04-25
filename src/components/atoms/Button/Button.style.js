@@ -35,7 +35,7 @@ export const StyledButton = styled.button`
 
   @media (min-width: 1024px) {
     width: 30%;
-    height: 10%;
+    height: 15%;
     cursor: pointer;
     transition: 0.5s ease-out;
     position: relative;
@@ -56,7 +56,6 @@ export const StyledButton = styled.button`
     &:hover:not([disabled]) {
       background-color: ${({ theme }) => theme.colors.white};
       color: ${({ theme }) => theme.colors.violet};
-      /* border: 5px solid ${({ theme }) => theme.colors.violet}; */
       box-shadow: none;
     }
 

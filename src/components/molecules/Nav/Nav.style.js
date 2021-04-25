@@ -26,6 +26,7 @@ export const NavContainer = styled.nav`
     justify-content: flex-end;
     width: 90%;
     border: none;
+    margin: 10px 0;
   }
 `;
 

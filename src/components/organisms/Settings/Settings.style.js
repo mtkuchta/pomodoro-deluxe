@@ -21,14 +21,14 @@ export const Wrapper = styled.div`
   }
 
   @media (min-width: 700px) and (orientation: landscape) {
-    ${({ isSettingsActive }) => (isSettingsActive ? `top:0%;` : `top:92%;`)}
+    ${({ isSettingsActive }) => (isSettingsActive ? `top:0%;` : `top:88%;`)}
   }
 
   @media (min-width: 1024px) {
     height: 40%;
     width: 900px;
     top: 25%;
-    left: ${({ isSettingsActive }) => (isSettingsActive ? '0px' : '-820px')};
+    left: ${({ isSettingsActive }) => (isSettingsActive ? '-100px' : '-820px')};
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
@@ -66,7 +66,7 @@ export const StyledText = styled.h1`
   cursor: pointer;
 
   @media (orientation: landscape) {
-    height: 12%;
+    height: 20%;
     padding-top: 5px;
   }
 
@@ -78,15 +78,16 @@ export const StyledText = styled.h1`
   }
 
   @media (min-width: 700px) and (orientation: landscape) {
-    height: 8%;
-    padding-top: 10px;
+    height: 14%;
+    padding-bottom: 5px;
+    padding-top: 5px;
   }
 
   @media (min-width: 1024px) {
     height: 90%;
     width: 100px;
     writing-mode: vertical-rl;
-    font-size: 4.5em;
+    font-size: 4em;
     padding-right: 15px;
     letter-spacing: 4px;
     transition: 0.5s;

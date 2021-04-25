@@ -2,11 +2,11 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   width: 100%;
-  height: ${({ isOpen }) => (isOpen ? '30%' : '8%')};
+  height: ${({ isOpen }) => (isOpen ? '20%' : '8%')};
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 10px 0;
 
   @media (orientation: landscape) {
@@ -23,6 +23,8 @@ export const Wrapper = styled.div`
   }
   @media (min-width: 1024px) {
     width: 80%;
-    height: ${({ isOpen }) => (isOpen ? '20%' : '6%')};
+    max-width: 800px;
+    height: ${({ isOpen }) => (isOpen ? '15%' : '6%')};
+    margin: none;
   }
 `;

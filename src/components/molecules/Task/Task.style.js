@@ -26,7 +26,7 @@ export const Wrapper = styled.li`
   }
 
   @media (orientation: landscape) {
-    height: ${({ isOpen }) => (isOpen ? '70%' : '15%')};
+    height: ${({ isOpen }) => (isOpen ? '75%' : '20%')};
   }
 
   @media (min-width: 700px) {
@@ -42,14 +42,15 @@ export const Wrapper = styled.li`
   }
 
   @media (min-width: 1024px) {
-    height: ${({ isOpen }) => (isOpen ? '30%' : '10%')};
+    height: ${({ isOpen }) => (isOpen ? '35%' : '8%')};
+    min-height: 60px;
     padding-left: 2%;
     width: 90%;
     cursor: pointer;
     transition: 0.5s;
 
     p {
-      font-size: 3.2em;
+      font-size: 2.5em;
       padding-left: 2%;
       transition: 0.5s;
     }
@@ -69,7 +70,7 @@ export const StyledIcon = styled(FontAwesomeIcon)`
   }
 
   @media (min-width: 1024px) {
-    font-size: 4.2em;
+    font-size: 3em;
 
     &:hover {
       color: ${({ theme }) => theme.colors.green};
