@@ -5,7 +5,7 @@ const FormField = ({ onChange, value, label, name, id, type = 'number' }) => {
   return (
     <Wrapper>
       <StyledLabel htmlFor={id}>{label}:</StyledLabel>
-      <StyledInput name={name} id={id} type={type} onChange={onChange} value={value} required />
+      <StyledInput name={name} id={id} type={type} onChange={onChange} value={value} min="1" required />
     </Wrapper>
   );
 };

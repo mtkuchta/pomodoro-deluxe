@@ -16,7 +16,7 @@ export const useSettings = () => {
     dispatchSettings({ type: types.saveSettings, intervals });
   };
 
-  const handleDefaultSettings = () => {
+  const restoreDefaultSettings = () => {
     dispatchSettings({ type: types.saveSettings, intervals: initialSettings.intervals });
   };
 
@@ -29,7 +29,7 @@ export const useSettings = () => {
     settings,
     handleShowSettings,
     handleSaveSettings,
-    handleDefaultSettings,
+    restoreDefaultSettings,
     getSettingsFromStorage,
   };
 };

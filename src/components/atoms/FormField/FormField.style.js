@@ -26,14 +26,10 @@ export const Wrapper = styled.div`
 
 export const StyledLabel = styled.label`
   font-size: 2.4em;
-  color: ${({ theme }) => theme.colors.violet};
+  color: ${({ theme }) => theme.colors.white};
 
   @media (min-width: 700px) {
     font-size: 3em;
-  }
-
-  @media (min-width: 1024px) {
-    color: ${({ theme }) => theme.colors.white};
   }
 `;
 
@@ -43,7 +39,7 @@ export const StyledInput = styled.input`
   font-size: 2.5em;
   width: 20%;
   padding-left: 15px;
-  color: ${({ theme }) => theme.colors.violet};
+  color: ${({ theme }) => theme.colors.white};
 
   &:focus {
     outline-color: ${({ theme }) => theme.colors.red};
@@ -51,9 +47,5 @@ export const StyledInput = styled.input`
 
   @media (min-width: 700px) {
     font-size: 3.2em;
-  }
-
-  @media (min-width: 1024px) {
-    color: ${({ theme }) => theme.colors.white};
   }
 `;

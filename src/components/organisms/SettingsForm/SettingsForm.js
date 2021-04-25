@@ -12,7 +12,7 @@ import ErrorMessage from '../../atoms/ErrorMessage/ErrorMessage';
 const initialErrors = { workTime: null, shortBreak: null, longBreak: null, longBreakIntervals: null };
 
 const SettingsForm = () => {
-  const { settings, handleSaveSettings, handleDefaultSettings } = useContext(PomodoroContext);
+  const { settings, handleSaveSettings, restoreDefaultSettings } = useContext(PomodoroContext);
   const { getDataFromStorage } = useLocalStorage();
   const [settingsValues, setSettingsValues] = useState(getDataFromStorage('intervals') || initialSettings);
   const [formErrors, setFormErrors] = useState(initialErrors);
@@ -21,8 +21,16 @@ const SettingsForm = () => {
     setSettingsValues(settings.intervals);
   }, [settings.intervals]);
 
+  useEffect(() => {
+    if (!settings.isSettingsActive && formErrors !== initialErrors) {
+      setSettingsValues(getDataFromStorage('intervals') || initialSettings);
+      setFormErrors(initialErrors);
+    }
+  }, [settings.isSettingsActive]);
+
   const handleSettingsInputChange = (e) => {
     setSettingsValues({ ...settingsValues, [e.target.name]: Number(e.target.value) });
+    console.log(settingsValues[e.target.name]);
   };
 
   const handleSubmitForm = () => {
@@ -30,9 +38,15 @@ const SettingsForm = () => {
     setFormErrors(initialErrors);
     if (isValid) {
       handleSaveSettings(settingsValues);
+      setSettingsValues(getDataFromStorage('intervals'));
     } else {
       setFormErrors(errors);
     }
+  };
+
+  const handleDefaultSettings = () => {
+    restoreDefaultSettings();
+    setFormErrors(initialErrors);
   };
 
   return (
