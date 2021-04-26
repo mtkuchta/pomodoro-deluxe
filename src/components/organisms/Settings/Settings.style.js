@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
-  ${({ isSettingsActive }) => (isSettingsActive ? `top:0%;` : `top:93%;`)}
+  top: ${({ isSettingsActive }) => (isSettingsActive ? '0%' : '93%')};
   background-color: ${({ theme }) => theme.colors.violet};
   transition: 0.7s;
   transition-timing-function: ease-in-out;
