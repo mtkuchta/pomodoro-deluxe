@@ -22,7 +22,7 @@ export const useSettings = () => {
 
   const getSettingsFromStorage = () => {
     const savedSettings = getDataFromStorage('intervals');
-    saveSettings(savedSettings);
+    if (savedSettings) saveSettings(savedSettings);
   };
 
   return {

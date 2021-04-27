@@ -30,7 +30,6 @@ const SettingsForm = () => {
 
   const handleSettingsInputChange = (e) => {
     setSettingsValues({ ...settingsValues, [e.target.name]: Number(e.target.value) });
-    console.log(settingsValues[e.target.name]);
   };
 
   const handleSubmitForm = () => {
@@ -55,7 +54,7 @@ const SettingsForm = () => {
         name="workTime"
         id="workTime"
         label="Work time"
-        value={settingsValues.workTime}
+        value={settingsValues.workTime || 25}
         onChange={handleSettingsInputChange}
       />
       {formErrors.workTime ? <ErrorMessage text={formErrors.workTime} /> : null}
@@ -63,7 +62,7 @@ const SettingsForm = () => {
         name="shortBreak"
         id="shortBreak"
         label="Short break"
-        value={settingsValues.shortBreak}
+        value={settingsValues.shortBreak || 5}
         onChange={handleSettingsInputChange}
       />
       {formErrors.shortBreak ? <ErrorMessage text={formErrors.shortBreak} /> : null}
@@ -71,7 +70,7 @@ const SettingsForm = () => {
         name="longBreak"
         id="longtBreak"
         label="Long break"
-        value={settingsValues.longBreak}
+        value={settingsValues.longBreak || 20}
         onChange={handleSettingsInputChange}
       />
       {formErrors.longBreak ? <ErrorMessage text={formErrors.longBreak} /> : null}
@@ -79,7 +78,7 @@ const SettingsForm = () => {
         name="longBreakIntervals"
         id="longtBreakIntervals"
         label="Long break intervals"
-        value={settingsValues.longBreakIntervals}
+        value={settingsValues.longBreakIntervals || 4}
         onChange={handleSettingsInputChange}
       />
       {formErrors.longBreakIntervals ? <ErrorMessage text={formErrors.longBreakIntervals} /> : null}

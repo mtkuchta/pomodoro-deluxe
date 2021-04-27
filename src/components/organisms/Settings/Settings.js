@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Wrapper, StyledText, SettingsContainer } from './Settings.style';
+import { Wrapper, StyledText } from './Settings.style';
 
 import { PomodoroContext } from '../../../providers/PomodoroProvider';
 import SettingsForm from '../SettingsForm/SettingsForm';

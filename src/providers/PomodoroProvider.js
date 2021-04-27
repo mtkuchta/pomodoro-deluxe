@@ -5,8 +5,10 @@ import { useLocalStorage } from '../hooks/useLocalStorage';
 import { useCounter } from '../hooks/useCounter';
 import { useSettings } from '../hooks/useSettings';
 import { useTasks } from '../hooks/useTasks';
+import { initialSettings } from '../assets/initialSettings';
 
 export const PomodoroContext = React.createContext({
+  settings: initialSettings,
   handleStartStopCount: () => {},
   handleShowSettings: () => {},
   handleSaveSettings: () => {},
