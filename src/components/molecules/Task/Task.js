@@ -21,7 +21,7 @@ const Task = ({ title, isActive, onClick, id, task }) => {
     <Wrapper id={id} isActive={isActive ? true : false} isOpen={isOpen ? true : false} onClick={handleOpen}>
       <StyledIcon icon={faCheckCircle} isActive={isActive ? true : false} onClick={onClick} />
       <p>{title}</p>
-      <TaskEditForm isOpen={isOpen ? true : false} task={task} handleClose={handleClose} />
+      {isOpen && <TaskEditForm isOpen={isOpen ? true : false} task={task} handleClose={handleClose} />}
     </Wrapper>
   );
 };

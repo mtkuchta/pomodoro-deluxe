@@ -61,7 +61,9 @@ export const Wrapper = styled.li`
   }
 `;
 
-export const StyledIcon = styled(FontAwesomeIcon)`
+const FilteredIcon = ({ isActive, ...rest }) => <FontAwesomeIcon {...rest} />;
+
+export const StyledIcon = styled(FilteredIcon)`
   color: ${({ theme, isActive }) => (isActive ? theme.colors.white : theme.colors.violet)};
   font-size: 2.5em;
 
