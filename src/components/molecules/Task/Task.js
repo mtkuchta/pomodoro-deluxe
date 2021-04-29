@@ -10,7 +10,7 @@ const Task = ({ title, isActive, id, task, handleSetActiveTask, showTaskDetails 
       <StyledIcon icon={faCheckCircle} isActive={isActive ? true : false} onClick={handleSetActiveTask} />
       <p onClick={showTaskDetails}>{title}</p>
       {task.isOpen && <TaskEditForm isOpen={task.isOpen} task={task} handleClose={showTaskDetails} />}
-      {task.isOpen && <TaskTotalTime time={task.isOpen} />}
+      {task.isOpen && <TaskTotalTime time={task.totalTime} />}
     </Wrapper>
   );
 };
