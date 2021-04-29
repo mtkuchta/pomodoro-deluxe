@@ -1,5 +1,5 @@
 import AddTask from './AddTask';
-import TasksList from '../../organisms/TasksList/TasksList';
+import TasksList from '../TasksList/TasksList';
 import { renderWithProviders } from '../../../assets/helpers/renderWithProviders';
 import { fireEvent, screen } from '@testing-library/react';
 
