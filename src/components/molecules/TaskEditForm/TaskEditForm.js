@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 const TaskEditForm = ({ task, isOpen, handleClose }) => {
   const [formValues, setFormValues] = useState({ title: '', description: '' });
   const initialTaskValues = { title: task.title, description: task.description };
-  const { handleDeleteTask, handleSaveTask } = useContext(PomodoroContext);
+  const { handleDeleteTask, handleSaveTask, showTaskDetails } = useContext(PomodoroContext);
 
   useEffect(() => {
     setFormValues(initialTaskValues);
@@ -16,15 +16,15 @@ const TaskEditForm = ({ task, isOpen, handleClose }) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
 
-  const handleCancel = () => {
+  const handleCancel = (e) => {
     setFormValues(initialTaskValues);
-    handleClose();
+    handleClose(e);
   };
 
   const handleSaveModifiedTask = (e) => {
     e.preventDefault();
     handleSaveTask(e, formValues.title, formValues.description);
-    handleClose();
+    showTaskDetails(e);
   };
 
   return (

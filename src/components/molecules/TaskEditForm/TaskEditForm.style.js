@@ -4,9 +4,9 @@ export const StyledForm = styled.form`
   display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
   flex-direction: column;
   align-items: flex-start;
-  width: 100%;
-  height: 90%;
-  padding-left: 10px;
+  width: 90%;
+  height: 80%;
+  padding-left: 20px;
   animation: showForm 1s ease-in-out;
 
   div {
@@ -66,6 +66,10 @@ export const StyledLabel = styled.label`
     padding-bottom: 5px;
     width: 20%;
   }
+
+  @media (min-width: 1200px) {
+    font-size: 2.2em;
+  }
 `;
 
 export const StyledInput = styled.input`
@@ -93,6 +97,10 @@ export const StyledInput = styled.input`
   @media (min-width: 1024px) {
     font-size: 2.5em;
     margin-bottom: 2%;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 2.6em;
   }
 `;
 
@@ -122,6 +130,10 @@ export const StyledTextArea = styled.textarea`
   @media (min-width: 1024px) {
     width: inherit;
     height: 100%;
+    font-size: 2.2em;
+  }
+
+  @media (min-width: 1200px) {
     font-size: 2.2em;
   }
 `;

@@ -15,6 +15,7 @@ export const Wrapper = styled.main`
 
 export const TimerLink = styled(Link)`
   font-size: 2.2em;
+  height: 15%;
   color: ${({ theme }) => theme.colors.red};
   letter-spacing: 1px;
   text-decoration: none;

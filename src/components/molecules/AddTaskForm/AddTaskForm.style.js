@@ -57,6 +57,7 @@ export const StyledTaskInput = styled.input`
 export const ButtonsWrapper = styled.div`
   width: 100%;
   height: 30%;
+  display: flex;
 
   @media (orientation: landscape) {
     width: 25%;
@@ -80,6 +81,9 @@ export const ButtonsWrapper = styled.div`
 
 export const FormButton = styled.button`
   height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: ${({ theme }) => theme.colors.violet};
   color: ${({ theme }) => theme.colors.white};
   font-size: 1.7em;

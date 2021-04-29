@@ -30,4 +30,5 @@ export const StyledButton = styled.button`
       
       letter-spacing:1px;
   }
+
 `;

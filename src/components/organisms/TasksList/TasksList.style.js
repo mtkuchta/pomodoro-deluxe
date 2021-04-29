@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.ul`
-  width: 100%;
+  width: 90%;
   height: 80%;
   display: flex;
   flex-direction: column;
@@ -21,6 +21,6 @@ export const Wrapper = styled.ul`
   @media (min-width: 1024px) {
     width: 80%;
     max-width: 800px;
-    height: 85%;
+    height: 75%;
   }
 `;

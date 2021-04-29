@@ -1,27 +1,16 @@
-import { useState } from 'react';
 import { Wrapper, StyledIcon } from './Task.style';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import TaskEditForm from '../TaskEditForm/TaskEditForm';
 import PropTypes from 'prop-types';
+import TaskTotalTime from '../../atoms/TaskTotalTime/TaskTotalTime';
 
-const Task = ({ title, isActive, onClick, id, task }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleOpen = (e) => {
-    e.preventDefault();
-    if (isOpen) return;
-    setIsOpen(true);
-  };
-
-  const handleClose = () => {
-    setIsOpen(false);
-  };
-
+const Task = ({ title, isActive, id, task, handleSetActiveTask, showTaskDetails }) => {
   return (
-    <Wrapper id={id} isActive={isActive ? true : false} isOpen={isOpen ? true : false} onClick={handleOpen}>
-      <StyledIcon icon={faCheckCircle} isActive={isActive ? true : false} onClick={onClick} />
-      <p>{title}</p>
-      {isOpen && <TaskEditForm isOpen={isOpen ? true : false} task={task} handleClose={handleClose} />}
+    <Wrapper id={id} isActive={isActive ? true : false} isOpen={task.isOpen}>
+      <StyledIcon icon={faCheckCircle} isActive={isActive ? true : false} onClick={handleSetActiveTask} />
+      <p onClick={showTaskDetails}>{title}</p>
+      {task.isOpen && <TaskEditForm isOpen={task.isOpen} task={task} handleClose={showTaskDetails} />}
+      {task.isOpen && <TaskTotalTime time={task.isOpen} />}
     </Wrapper>
   );
 };

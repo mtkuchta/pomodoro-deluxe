@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import * as workerTimers from 'worker-timers';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { useCounter } from '../hooks/useCounter';
@@ -20,9 +20,20 @@ export const PomodoroContext = React.createContext({
 export const PomodoroProvider = ({ children }) => {
   const { counter, handleCount, handleEndInterval, setNextInterval, setCounterValue, handleStartStopCount } = useCounter();
   const { settings, showHideSettings, saveSettings, restoreDefaultSettings, getSettingsFromStorage } = useSettings();
-  const { tasks, handleSetActiveTask, handleAddTask, getTasksFromStorage, handleDeleteTask, handleSaveTask } = useTasks();
+  const {
+    tasks,
+    handleSetActiveTask,
+    handleAddTask,
+    getTasksFromStorage,
+    handleDeleteTask,
+    handleSaveTask,
+    calculateTotalTime,
+    showTaskDetails,
+  } = useTasks();
   const { saveDataInStorage } = useLocalStorage();
+
   const history = useHistory();
+  let location = useLocation();
 
   useEffect(() => {
     getSettingsFromStorage();
@@ -40,6 +51,7 @@ export const PomodoroProvider = ({ children }) => {
   }, [counter.isRunning]);
 
   useEffect(() => {
+    if (counter.isWorkInterval) calculateTotalTime();
     handleEndInterval();
   }, [counter.counterValue]);
 
@@ -56,6 +68,10 @@ export const PomodoroProvider = ({ children }) => {
     saveDataInStorage('tasks', tasks.tasks);
   }, [tasks.tasks]);
 
+  useEffect(() => {
+    if (location.pathname === '/') showTaskDetails();
+  }, [location]);
+
   return (
     <PomodoroContext.Provider
       value={{
@@ -71,6 +87,7 @@ export const PomodoroProvider = ({ children }) => {
         handleStartStopCount,
         handleDeleteTask,
         handleSaveTask,
+        showTaskDetails,
       }}
     >
       {children}
