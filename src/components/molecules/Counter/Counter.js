@@ -13,7 +13,8 @@ const Counter = () => {
     handleStartStopCount,
   } = useContext(PomodoroContext);
 
-  const isActiveTask = tasks.findIndex((task) => task.isActive === true) !== -1 ? true : false;
+  const isActiveTask = (tasks && tasks.findIndex((task) => task.isActive === true)) !== -1 ? true : false;
+
   return (
     <Wrapper>
       <CounterDisplay value={counterValue} isRunning={isRunning} />

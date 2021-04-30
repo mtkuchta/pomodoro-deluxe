@@ -69,7 +69,7 @@ export const PomodoroProvider = ({ children }) => {
   }, [tasks.tasks]);
 
   useEffect(() => {
-    if (location.pathname === '/') showTaskDetails();
+    if (tasks && location.pathname === '/') showTaskDetails();
   }, [location]);
 
   return (

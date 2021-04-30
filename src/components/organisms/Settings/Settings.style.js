@@ -6,8 +6,9 @@ export const Wrapper = styled.div`
   position: absolute;
   top: ${({ isSettingsActive }) => (isSettingsActive ? '0%' : '93%')};
   background-color: ${({ theme }) => theme.colors.violet};
-  transition: 0.7s;
-  transition-timing-function: ease-in-out;
+  will-change: transform;
+  transition: 0.5s;
+  transition-timing-function: linear;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,19 +37,6 @@ export const Wrapper = styled.div`
     box-shadow: ${({ theme, isSettingsActive }) => (isSettingsActive ? `10px 0px 20px 20px  ${theme.colors.black}` : `none`)};
     border-radius: 0 20px 20px 0;
     z-index: 100;
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 0 20px 20px 0;
-      display: ${({ isSettingsActive }) => (isSettingsActive ? 'block' : 'none')};
-      z-index: -1;
-      transition: 0.5s;
-    }
   }
 `;
 

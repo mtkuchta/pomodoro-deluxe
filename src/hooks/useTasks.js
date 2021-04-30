@@ -8,8 +8,8 @@ import { findTaskIndex } from '../assets/helpers/findTaskIndex';
 import { setIsOpen } from '../assets/helpers/setIsOpen';
 
 export const useTasks = () => {
-  const [tasks, dispatchTasks] = useReducer(tasksReducer, { tasks: [] });
   const { saveDataInStorage, getDataFromStorage } = useLocalStorage();
+  const [tasks, dispatchTasks] = useReducer(tasksReducer, { tasks: getDataFromStorage('tasks') || [] });
 
   const getTasksFromStorage = () => {
     const tasksList = getDataFromStorage('tasks');
@@ -48,7 +48,7 @@ export const useTasks = () => {
   };
 
   const calculateTotalTime = () => {
-    const tasksArr = [...tasks.tasks];
+    const tasksArr = tasks.tasks ? [...tasks.tasks] : [];
     const activeTaskIndex = tasksArr.findIndex((task) => task.isActive === true);
 
     if (activeTaskIndex !== -1) {

@@ -1,5 +1,5 @@
 export const setIsOpen = (tasks, id) => {
-  if (!id)
+  if (!id && tasks)
     return tasks.map((task) => {
       task.isOpen = false;
       return task;
