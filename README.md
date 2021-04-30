@@ -1,6 +1,6 @@
 # POMODORO DELUXE
 
-![pomodoro-deluxe-view](.src/assets/img/pomodoro_timer.JPG)
+![pomodoro-deluxe-timer](./src/assets/img/pomodoro_timer.JPG)
 
 ## Introduction
 
