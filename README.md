@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# POMODORO DELUXE
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![pomodoro-deluxe-view](.src/assets/img/pomodoro_timer.JPG)
 
-## Available Scripts
+## Introduction
 
-In the project directory, you can run:
+Pomodoro Deluxe is a timer based on the Pomodoro Technique ( created by Francesco Cirillo). The app helps achieve greater work efficiency dividing time into individual work and break intervals. By default, the working time interval is 25min, after each there is a break (long break after every four work intervals). You can use your own settings for intervals.
+Click [here](https://mtkuchta.github.io/pomodoro-deluxe/) to use Pomodoro Deluxe.
 
-### `npm start`
+## How to use Pomodoro Deluxe?
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Add tasks to work.
+2. Select tasks to work on.
+3. Start timer and focus on the task.
+4. When work interval runs out you will hear an alarm.
+5. Taske a break (click Start button to count break time).
+6. When the break is over click Start to count next work interval.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## How to change timer settings ?
 
-### `npm test`
+There is a settings button on the timer page, clicking on it will display the settings tab. The current timer interval is reset when the settings are changed.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![pomodoro-deluxe-settings](./src/assets/img/pomodoro_settings.JPG)
 
-### `npm run build`
+## Technologies:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React 17.0.1,
+- Styled Components 5.2.1
+- React Howler 5.0.0,
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Features:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- responsie design (mobile first)
+- audio notifiction at the end of a timer interval
+- store tasks in local storage
+- counting total time spent on the task,
+- tasks mofdification,
+- timer interval settings,
+- information about the current interval,
+- information about active task
 
-### `npm run eject`
+## Setup
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+To run this project, install it locally using npm:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+$ cd ../lorem
+$ npm install
+$ npm start
+```
