@@ -23,7 +23,7 @@ There is a settings button on the timer page, clicking on it will display the se
 ![pomodoro-deluxe-settings](./src/assets/img/pomodoro_settings.JPG)
 
 ## Technologies:
-
+- Node 12.18.4
 - React 17.0.1,
 - Styled Components 5.2.1
 - React Howler 5.0.0,
